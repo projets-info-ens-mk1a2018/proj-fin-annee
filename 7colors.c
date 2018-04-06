@@ -4,8 +4,6 @@
 #include "7colors.h"
 #include "map_gen.h"
 
-/* We want a 30x30 board game by default */
-#define BOARD_SIZE 30
 
 /** Represent the actual current board game
  *
