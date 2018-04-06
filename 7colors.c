@@ -44,6 +44,7 @@ void print_board(void)
 /** Program entry point */
 int main(void)
 {
+	srand(time(NULL)):
     printf("\n\nWelcome to the 7 wonders of the world of the 7 colors\n"
 	   "*****************************************************\n\n"
 	   "Current board state:\n");
