@@ -2,6 +2,7 @@
 
 #include <stdio.h>     /* printf */
 #include "7colors.h"
+#include "maj.h"
 #include "map_gen.h"
 
 
