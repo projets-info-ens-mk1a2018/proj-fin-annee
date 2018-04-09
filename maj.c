@@ -1,25 +1,28 @@
 #include "7colors.h"
 /** Cherche autour d'une case s'il y a une case de la couleur voulue et la modifie ou si il y une case du joueur il se relance de manière récursive
  */
-void search_cells(char symbole, char color, int x, int y, int old) 
+void search_cells(char symbole, char color, int x, int y, int old, char *visite) 
 {
-/** case à gauche
- * si old=2 on vient de la gauche, donc on regarde pas ne nouveau la case à gauche
+/** cette case (x,y) a été visité, on y retournera pas
  */
-	if ((x-1>0) & (old!=2)){
-		if (get_cell(x-1,y)==color)){
+	visite[y * BOARD_SIZE + x]=1; 
+/** case à gauche
+ */
+	if ((x-1>0) & (visite[y * BOARD_SIZE + x-1]==0)){
+		if (get_cell(x-1,y)==color){
 			set_cell(x-1,y,symbole);
+			search_cells(symbole, color, x-1, y);
 		}
-		if (get_cell(x-1,y)==color)){
+		if (get_cell(x-1,y)==symbole)){
 			search_cells(symbole, color, x-1, y);
 		}
 	}
 /** case à droite
- * A FAIRE DE MEME POUR LES 3 AUTRES
  */
-	if (x+1<BOARD_SIZE){
-		if (get_cell(x+1,y)==color)){
+	if (x+1<BOARD_SIZE)& (visite[(y) * BOARD_SIZE + x+1]==0)){
+		if (get_cell(x+1,y)==color){
 			set_cell(x+1,y,symbole);
+			search_cells(symbole, color, x+1, y);
 		}
 		if (get_cell(x+1,y)==color)){
 			search_cells(symbole, color, x+1, y);
@@ -27,9 +30,10 @@ void search_cells(char symbole, char color, int x, int y, int old)
 	}
 /** case en haut
  */
-	if (y-1>0){
-		if (get_cell(x,y-1)==color)){
+	if ((y-1>0)& (visite[(y-1) * BOARD_SIZE + x]==0)){
+		if (get_cell(x,y-1)==color){
 			set_cell(x,y-1,symbole);
+			search_cells(symbole, color, x, y-1);
 		}
 		if (get_cell(x,y-1)==color)){
 			search_cells(symbole, color, x, y-1);
@@ -37,9 +41,10 @@ void search_cells(char symbole, char color, int x, int y, int old)
 	}
 /** case en bas
  */
-	if (y+1<BOARD_SIZE){
-		if (get_cell(x,y+1)==color)){
+	if ((y+1<BOARD_SIZE)& (visite[(y+1) * BOARD_SIZE + x]==0)){
+		if (get_cell(x,y+1)==color){
 			set_cell(x,y+1,symbole);
+			search_cells(symbole, color, x, y+1);
 		}
 		if (get_cell(x,y+1)==color)){
 			search_cells(symbole, color, x, y+1);
@@ -66,5 +71,6 @@ void maj_board(char color, int player)
 	else {
 		symbole='v';
 	}	
-	search_cells(symbole, color, x, y, 0);
+	char visite[BOARD_SIZE * BOARD_SIZE]={0};
+	search_cells(symbole, color, x, y, 0,visite);
 }
