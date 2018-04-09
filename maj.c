@@ -57,21 +57,29 @@ void search_cells(char symbole, char color, int x, int y, char *visite)
 void maj_board(char color, int player)
 {	
 	int x,y;
+/** Si c'est le joueur 2 qui joue, on commence à regarder la case en haut à gauche
+ */
 	if (player==1) {
 		x=0;
 		y=BOARD_SIZE-1;
 	}
+/** Si c'est le joueur 1 qui joue, on commence à regarder la case en bas à droite
+ */
 	else {
 		y=0;
 		x=BOARD_SIZE-1;
 	}
-		char symbole;
+/** on définit le symbole assigné au joueur
+ */
+	char symbole;
 	if (player==1){
 		symbole='^';
 	}
 	else {
 		symbole='v';
 	}	
+/** on définit un tableau rempli de 0, les cases passeront à 1 lorsqu'elles auront été visitées
+ */
 	char visite[BOARD_SIZE * BOARD_SIZE]={0};
 	search_cells(symbole, color, x, y, visite);
 }
