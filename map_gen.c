@@ -15,6 +15,6 @@ void map_gen(void) {
 			set_cell(i,j,random_color());
         }
     }
-	set_cell(0,BOARD_SIZE-1,'^');
-	set_cell(BOARD_SIZE-1,0,'v');
+	set_cell(BOARD_SIZE-1,0,player_sym(0));
+	set_cell(0,BOARD_SIZE-1,player_sym(1));
 }

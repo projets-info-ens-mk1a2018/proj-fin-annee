@@ -71,13 +71,7 @@ void maj_board(char color, int player)
 	}
 /** on définit le symbole assigné au joueur
  */
-	char symbole;
-	if (player==1){
-		symbole='^';
-	}
-	else {
-		symbole='v';
-	}	
+	char symbole=player_sym(player);
 /** on définit un tableau rempli de 0, les cases passeront à 1 lorsqu'elles auront été visitées
  */
 	char visite[BOARD_SIZE * BOARD_SIZE]={0};

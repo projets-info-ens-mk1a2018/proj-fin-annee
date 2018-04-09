@@ -7,6 +7,8 @@
 #include "maj.h"
 #include "map_gen.h"
 #include "human.h"
+#include "stop_condition.h"
+#include "territory.h"
 
 
 /** Represent the actual current board game
@@ -27,6 +29,16 @@ char get_cell(int x, int y)
 void set_cell(int x, int y, char color)
 {
     board[y * BOARD_SIZE + x] = color;
+}
+
+char player_sym(int player)
+{
+	if (player==1){
+		return '^';
+	}
+	else {
+		return 'v';
+	}	
 }
 
 /** Prints the current state of the board on screen
@@ -57,9 +69,13 @@ int main(void)
 	
 	
 	int player=0;
-	while (1){
+	while (!game_end()){
 		maj_board(human_color(player), player);
 		print_board();
+		
+		print_territory(0);
+		print_territory(1);
+		
 		player=1-player;
 	}
 	
