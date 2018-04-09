@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 #include "7colors.h"
@@ -11,8 +12,9 @@ void map_gen(void) {
 	int i, j;
 	for (i = 0; i < BOARD_SIZE; i++) {
         for (j = 0; j < BOARD_SIZE; j++) {
-			if(i & j & (i!=BOARD_SIZE) & (j !=BOARD_SIZE))
-				set_cell(i,j,random_color());
+			set_cell(i,j,random_color());
         }
     }
+	set_cell(0,BOARD_SIZE-1,'^');
+	set_cell(BOARD_SIZE-1,0,'v');
 }
