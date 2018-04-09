@@ -6,6 +6,7 @@
 #include "7colors.h"
 #include "maj.h"
 #include "map_gen.h"
+#include "human.h"
 
 
 /** Represent the actual current board game
@@ -56,11 +57,8 @@ int main(void)
 	
 	
 	int player=0;
-	char color;
 	while (1){
-		printf("Joueur %d, à toi de jouer\nCouleur: ",player+1);
-		scanf(" %c", &color);
-		maj_board(color, player);
+		maj_board(human_color(player), player);
 		print_board();
 		player=1-player;
 	}

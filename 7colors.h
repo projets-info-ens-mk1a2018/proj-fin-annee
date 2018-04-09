@@ -6,5 +6,6 @@
 
 void set_cell(int x, int y, char color);
 char get_cell(int x, int y);
+void print_board(void);
 
 #endif
