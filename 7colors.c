@@ -53,6 +53,19 @@ int main(void)
 	   "Current board state:\n");
 	map_gen();
     print_board();
-
+	
+	
+	int player=0;
+	char color;
+	while (1){
+		printf("Joueur %d, à toi de jouer\nCouleur: ",player+1);
+		scanf(" %c", &color);
+		maj_board(color, player);
+		print_board();
+		player=1-player;
+	}
+	
+	
+	
     return 0; // Everything went well
 }

@@ -1,5 +1,5 @@
 #include "7colors.h"
-/** Cherche autour d'une case s'il y a une case de la couleur voulue et la modifie ou si il y une case du joueur il se relance de manière récursive
+/** Cherche autour d'une case s'il y a une case de la couleur voulue et la modifie ou si il y une case du joueur. il se relance de manière récursive
  */
 void search_cells(char symbole, char color, int x, int y, char *visite) 
 {
@@ -8,7 +8,7 @@ void search_cells(char symbole, char color, int x, int y, char *visite)
 	visite[y * BOARD_SIZE + x]=1; 
 /** case à gauche
  */
-	if ((x-1>0) & (visite[y * BOARD_SIZE + x-1]==0)){
+	if ((x-1>=0) & (visite[y * BOARD_SIZE + x-1]==0)){
 		if (get_cell(x-1,y)==color){
 			set_cell(x-1,y,symbole);
 			search_cells(symbole, color, x-1, y, visite);
@@ -24,18 +24,18 @@ void search_cells(char symbole, char color, int x, int y, char *visite)
 			set_cell(x+1,y,symbole);
 			search_cells(symbole, color, x+1, y, visite);
 		}
-		if (get_cell(x+1,y)==color){
+		if (get_cell(x+1,y)==symbole){
 			search_cells(symbole, color, x+1, y, visite);
 		}
 	}
 /** case en haut
  */
-	if ((y-1>0)& (visite[(y-1) * BOARD_SIZE + x]==0)){
+	if ((y-1>=0)& (visite[(y-1) * BOARD_SIZE + x]==0)){
 		if (get_cell(x,y-1)==color){
 			set_cell(x,y-1,symbole);
 			search_cells(symbole, color, x, y-1, visite);
 		}
-		if (get_cell(x,y-1)==color){
+		if (get_cell(x,y-1)==symbole){
 			search_cells(symbole, color, x, y-1, visite);
 		}
 	}
@@ -46,7 +46,7 @@ void search_cells(char symbole, char color, int x, int y, char *visite)
 			set_cell(x,y+1,symbole);
 			search_cells(symbole, color, x, y+1, visite);
 		}
-		if (get_cell(x,y+1)==color){
+		if (get_cell(x,y+1)==symbole){
 			search_cells(symbole, color, x, y+1, visite);
 		}
 	}
