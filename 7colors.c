@@ -38,7 +38,7 @@ void print_board(void)
     int i, j;
     for (i = 0; i < BOARD_SIZE; i++) {
         for (j = 0; j < BOARD_SIZE; j++) {
-            printf("%c", get_cell(i, j));
+            printf("%c ", get_cell(i, j));
         }
         printf("\n");
     }
