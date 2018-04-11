@@ -10,6 +10,7 @@
 #include "stop_condition.h"
 #include "territory.h"
 #include "alea1.h"
+#include "alea2.h"
 
 /** Represent the actual current board game
  *
@@ -74,11 +75,17 @@ int main(void)
  */
 	int player_type[2];
 	printf("Quel est le type du joueur 1 ? \n");
-	printf("Tape 1 pour un humain ou 2 pour une IA aléatoire ");
+	printf("Tape :\n");
+	printf("1 pour un humain\n");
+	printf("2 pour une IA aléatoire\n");
+	printf("3 pour une IA semi-aléatoire.\n");
 	scanf("%d",&(player_type[0]));
 	
 	printf("Quel est le type du joueur 2 ? \n");
-	printf("Tape 1 pour un humain ou 2 pour une IA aléatoire ");
+	printf("Tape :\n");
+	printf("1 pour un humain\n");
+	printf("2 pour une IA aléatoire\n");
+	printf("3 pour une IA semi-aléatoire.\n");
 	scanf("%d",&(player_type[1]));
 	
 /** Affichage des conditions et du terrain
@@ -88,11 +95,15 @@ int main(void)
 	
 	int player=0;
 	while (!game_end()){
-		if (player_type[player]==1){
+		switch (player_type[player]){
+			case 1:
 			maj_board(human_color(player), player);
-		}
-		else {
+			break;
+			case 2:
 			maj_board(alea1_color(),player);
+			break;
+			case 3:
+			maj_board(alea2_color(player),player);
 		}
 		print_board();
 		
