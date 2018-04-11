@@ -11,6 +11,7 @@
 #include "territory.h"
 #include "alea1.h"
 #include "alea2.h"
+#include "glouton.h"
 
 /** Represent the actual current board game
  *
@@ -78,14 +79,16 @@ int main(void)
 	printf("Tape :\n");
 	printf("1 pour un humain\n");
 	printf("2 pour une IA aléatoire\n");
-	printf("3 pour une IA semi-aléatoire.\n");
+	printf("3 pour une IA semi-aléatoire\n");
+	printf("4 pour une IA gloutonne.\n");
 	scanf("%d",&(player_type[0]));
 	
 	printf("Quel est le type du joueur 2 ? \n");
 	printf("Tape :\n");
 	printf("1 pour un humain\n");
 	printf("2 pour une IA aléatoire\n");
-	printf("3 pour une IA semi-aléatoire.\n");
+	printf("3 pour une IA semi-aléatoire\n");
+	printf("4 pour une IA gloutonne.\n");
 	scanf("%d",&(player_type[1]));
 	
 /** Affichage des conditions et du terrain
@@ -104,6 +107,9 @@ int main(void)
 			break;
 			case 3:
 			maj_board(alea2_color(player),player);
+			break;
+			case 4:
+			maj_board(glouton_color(player),player);
 		}
 		print_board();
 		
