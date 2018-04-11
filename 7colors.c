@@ -9,7 +9,7 @@
 #include "human.h"
 #include "stop_condition.h"
 #include "territory.h"
-
+#include "alea1.h"
 
 /** Represent the actual current board game
  *
@@ -70,13 +70,30 @@ int main(void)
 	   "Current board state:\n");
 	map_gen();
 	
+/** Choix des types de joueurs
+ */
+	int player_type[2];
+	printf("Quel est le type du joueur 1 ? \n");
+	printf("Tape 1 pour un humain ou 2 pour une IA aléatoire ");
+	scanf("%d",&(player_type[0]));
+	
+	printf("Quel est le type du joueur 2 ? \n");
+	printf("Tape 1 pour un humain ou 2 pour une IA aléatoire ");
+	scanf("%d",&(player_type[1]));
+	
+/** Affichage des conditions et du terrain
+ */
 	print_legal_colors();
     print_board();
 	
-	
 	int player=0;
 	while (!game_end()){
-		maj_board(human_color(player), player);
+		if (player_type[player]==1){
+			maj_board(human_color(player), player);
+		}
+		else {
+			maj_board(alea1_color(),player);
+		}
 		print_board();
 		
 		print_territory(0);

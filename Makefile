@@ -1,7 +1,7 @@
 all: 7colors 
 
-7colors: 7colors.o maj.o map_gen.o human.o territory.o stop_condition.o
-	gcc 7colors.o maj.o map_gen.o human.o territory.o stop_condition.o -o 7colors
+7colors: 7colors.o maj.o map_gen.o human.o territory.o stop_condition.o alea1.o
+	gcc 7colors.o maj.o map_gen.o human.o territory.o stop_condition.o alea1.o -o 7colors
 
 7colors.o: 7colors.c 7colors.h
 	gcc -Wall -Werror -Wextra -Wno-unused-function -Wno-unused-parameter 7colors.c -c -g
@@ -20,3 +20,6 @@ stop_condition.o: stop_condition.c 7colors.h
 	
 territory.o: territory.c 7colors.h
 	gcc -Wall -Werror -Wextra -Wno-unused-function -Wno-unused-parameter territory.c -c -g
+
+alea1.o: alea1.c
+	gcc -Wall -Werror -Wextra -Wno-unused-function -Wno-unused-parameter alea1.c -c -g
