@@ -91,6 +91,9 @@ int main(void)
 	printf("4 pour une IA gloutonne.\n");
 	scanf("%d",&(player_type[1]));
 	
+	int nb_games;
+	printf("Combien de parties veux-tu jouer ? ")
+	
 /** Affichage des conditions et du terrain
  */
 	print_legal_colors();
