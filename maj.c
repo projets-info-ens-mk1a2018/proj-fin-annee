@@ -1,3 +1,5 @@
+#include <stdio.h>
+#include "maj.h"
 #include "7colors.h"
 /** Cherche autour d'une case s'il y a une case de la couleur voulue et la modifie ou si il y une case du joueur. il se relance de manière récursive
  */
@@ -57,6 +59,13 @@ void search_cells(char symbole, char color, int x, int y, char *visite)
 void maj_board(char color, int player)
 {	
 	int x,y;
+	
+/** On vérifie que la couleur est légalae
+ */
+	if((color>'G') | (color<'A')) {
+		print_legal_colors();
+		return;
+	}
 /** Si c'est le joueur 2 qui joue, on commence à regarder la case en haut à gauche
  */
 	if (player==1) {

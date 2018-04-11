@@ -8,7 +8,7 @@ char game_end(void)
 {
 	int wn=BOARD_SIZE*BOARD_SIZE/2;
 	
-	if((territory(0)>wn) | (territory(1)>wn) | ((territory(1)==wn) & (territory(0)==wn))) {
+	if((territory(0)>wn) | (territory(1)>wn) | ((territory(1)==wn) & (territory(0)==wn) & !(BOARD_SIZE%2))) {
 		return 1;
 	}
 	

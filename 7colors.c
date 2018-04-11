@@ -41,6 +41,10 @@ char player_sym(int player)
 	}	
 }
 
+void print_legal_colors(void)
+{	
+	printf("Les couleurs autorisées sont A,B,C,D,E,F,G\n");
+}
 /** Prints the current state of the board on screen
  *
  * Implementation note: It would be nicer to do this with ncurse or even
@@ -65,6 +69,8 @@ int main(void)
 	   "*****************************************************\n\n"
 	   "Current board state:\n");
 	map_gen();
+	
+	print_legal_colors();
     print_board();
 	
 	
