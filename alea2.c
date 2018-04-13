@@ -54,7 +54,7 @@ void search_colors(char symbole, int x, int y, char *visite, char *colors)
 	
 	if ((x-1>=0) & (visite[y * BOARD_SIZE + x-1]==0)){
 		color=get_cell(x-1,y);
-		if((color<='G') | (color>='A')) {
+		if((color<='G') & (color>='A')) {
 			colors[color-'A']=1;
 		}
 		if (get_cell(x-1,y)==symbole){
@@ -65,7 +65,7 @@ void search_colors(char symbole, int x, int y, char *visite, char *colors)
  */
 	if ((x+1<BOARD_SIZE)& (visite[(y) * BOARD_SIZE + x+1]==0)){
 		color=get_cell(x+1,y);
-		if((color<='G') | (color>='A')) {
+		if((color<='G') & (color>='A')) {
 			colors[color-'A']=1;
 		}
 		if (get_cell(x+1,y)==symbole){
@@ -76,7 +76,7 @@ void search_colors(char symbole, int x, int y, char *visite, char *colors)
  */
 	if ((y-1>=0)& (visite[(y-1) * BOARD_SIZE + x]==0)){
 		color=get_cell(x,y-1);
-		if((color<='G') | (color>='A')) {
+		if((color<='G') & (color>='A')) {
 			colors[color-'A']=1;
 		}
 		if (get_cell(x,y-1)==symbole){
@@ -87,7 +87,7 @@ void search_colors(char symbole, int x, int y, char *visite, char *colors)
  */
 	if ((y+1<BOARD_SIZE)& (visite[(y+1) * BOARD_SIZE + x]==0)){
 		color=get_cell(x,y+1);
-		if((color<='G') | (color>='A')) {
+		if((color<='G') & (color>='A')) {
 			colors[color-'A']=1;
 		}
 		if (get_cell(x,y+1)==symbole){
