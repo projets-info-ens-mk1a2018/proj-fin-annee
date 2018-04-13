@@ -13,6 +13,7 @@
 #include "alea2.h"
 #include "glouton.h"
 #include "hegemonique.h"
+#include "smart_glouton.h"
 
 /** Represent the actual current board game
  *
@@ -82,7 +83,8 @@ int main(void)
 	printf("2 pour une IA aléatoire\n");
 	printf("3 pour une IA semi-aléatoire\n");
 	printf("4 pour une IA gloutonne\n");
-	printf("5 pour une IA hégémonique.\n");
+	printf("5 pour une IA hégémonique\n");
+	printf("6 pour une IA grosse gloutonne.\n");
 	scanf("%d",&(player_type[0]));
 	
 	printf("Quel est le type du joueur 2 ? \n");
@@ -91,7 +93,8 @@ int main(void)
 	printf("2 pour une IA aléatoire\n");
 	printf("3 pour une IA semi-aléatoire\n");
 	printf("4 pour une IA gloutonne\n");
-	printf("5 pour une IA hégémonique.\n");
+	printf("5 pour une IA hégémonique\n");
+	printf("6 pour une IA grosse gloutonne.\n");
 	scanf("%d",&(player_type[1]));
 	
 	int nb_games;
@@ -122,6 +125,10 @@ int main(void)
 				break;
 				case 5:
 				maj_board(hegemonique_color(player),player);
+				maj_board(glouton_color(player),player);
+				break;
+				case 6:
+				maj_board(smart_glouton_color(player),player);
 			}
 			print_board();
 			
