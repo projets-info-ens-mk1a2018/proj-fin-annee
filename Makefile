@@ -1,7 +1,7 @@
 all: 7colors 
 
-7colors: 7colors.o maj.o map_gen.o human.o territory.o stop_condition.o alea1.o alea2.o glouton.o
-	gcc 7colors.o maj.o map_gen.o human.o territory.o stop_condition.o alea1.o alea2.o glouton.o -o 7colors
+7colors: 7colors.o maj.o map_gen.o human.o territory.o stop_condition.o alea1.o alea2.o glouton.o hegemonique.o
+	gcc 7colors.o maj.o map_gen.o human.o territory.o stop_condition.o alea1.o alea2.o glouton.o hegemonique.o -o 7colors 
 
 7colors.o: 7colors.c 7colors.h
 	gcc -Wall -Werror -Wextra -Wno-unused-function -Wno-unused-parameter 7colors.c -c -g
@@ -29,3 +29,6 @@ alea2.o: alea2.c 7colors.h
 	
 glouton.o: glouton.c 7colors.h
 	gcc -Wall -Werror -Wextra -Wno-unused-function -Wno-unused-parameter glouton.c -c -g
+
+hegemonique.o: hegemonique.c 7colors.h
+	gcc -Wall -Werror -Wextra -Wno-unused-function -Wno-unused-parameter hegemonique.c -c -g

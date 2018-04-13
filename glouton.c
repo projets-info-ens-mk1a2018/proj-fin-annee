@@ -55,14 +55,14 @@ void count_colors(char symbole, int x, int y, char *visite, int *colors)
 	
 	if ((x-1>=0) & (visite[y * BOARD_SIZE + x-1]==0)){
 		color=get_cell(x-1,y);
-		if((color<='G') | (color>='A')) {
+		if((color<='G') & (color>='A')) {
 			// On ne compte la case que si elle est adjacente à une case de la même couleur ou appartenant déjà au joueur
 			if((color==current_color) | (symbole==current_color)) {
 				colors[color-'A']++;
 				count_colors(symbole, x-1, y, visite, colors);
 			}
 		}
-		if (get_cell(x-1,y)==symbole){
+		if (color==symbole){
 			count_colors(symbole, x-1, y, visite, colors);
 		}
 	}
@@ -70,13 +70,13 @@ void count_colors(char symbole, int x, int y, char *visite, int *colors)
  */
 	if ((x+1<BOARD_SIZE)& (visite[(y) * BOARD_SIZE + x+1]==0)){
 		color=get_cell(x+1,y);
-		if((color<='G') | (color>='A')) {
+		if((color<='G') & (color>='A')) {
 			if((color==current_color) | (symbole==current_color)) {
 				colors[color-'A']++;
 				count_colors(symbole, x+1, y, visite, colors);
 			}
 		}
-		if (get_cell(x+1,y)==symbole){
+		if (color==symbole){
 			count_colors(symbole, x+1, y, visite, colors);
 		}
 	}
@@ -84,13 +84,13 @@ void count_colors(char symbole, int x, int y, char *visite, int *colors)
  */
 	if ((y-1>=0)& (visite[(y-1) * BOARD_SIZE + x]==0)){
 		color=get_cell(x,y-1);
-		if((color<='G') | (color>='A')) {
+		if((color<='G') & (color>='A')) {
 			if((color==current_color) | (symbole==current_color)) {
 				colors[color-'A']++;
 				count_colors(symbole, x, y-1, visite, colors);
 			}
 		}
-		if (get_cell(x,y-1)==symbole){
+		if (color==symbole){
 			count_colors(symbole, x, y-1, visite, colors);
 		}
 	}
@@ -98,13 +98,13 @@ void count_colors(char symbole, int x, int y, char *visite, int *colors)
  */
 	if ((y+1<BOARD_SIZE)& (visite[(y+1) * BOARD_SIZE + x]==0)){
 		color=get_cell(x,y+1);
-		if((color<='G') | (color>='A')) {
+		if((color<='G') & (color>='A')) {
 			if((color==current_color) | (symbole==current_color)) {
 				colors[color-'A']++;
 				count_colors(symbole, x, y+1, visite, colors);
 			}
 		}
-		if (get_cell(x,y+1)==symbole){
+		if (color==symbole){
 			count_colors(symbole, x, y+1, visite, colors);
 		}
 	}
