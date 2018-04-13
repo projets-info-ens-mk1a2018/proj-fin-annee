@@ -1,3 +1,6 @@
+/**
+ * 7 colors par Julien Baltazar et Alexandre Faye-Bédrin
+ */
 #include "map_gen.h"
 #include "7colors.h"
 #include "alea2.h"

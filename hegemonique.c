@@ -1,3 +1,6 @@
+/**
+ * 7 colors par Julien Baltazar et Alexandre Faye-Bédrin
+ */
 #include "7colors.h"
 #include "hegemonique.h"
 #include "alea2.h"

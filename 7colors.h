@@ -1,3 +1,6 @@
+/**
+ * 7 colors par Julien Baltazar et Alexandre Faye-Bédrin
+ */
 #ifndef SEVCOL
 #define SEVCOL
 

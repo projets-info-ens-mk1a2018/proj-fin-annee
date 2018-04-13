@@ -1,3 +1,6 @@
+/**
+ * 7 colors par Julien Baltazar et Alexandre Faye-Bédrin
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>

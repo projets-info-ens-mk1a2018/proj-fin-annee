@@ -1,5 +1,9 @@
 /* Template of the 7 wonders of the world of the 7 colors assigment. */
 
+/**
+ * 7 colors par Julien Baltazar et Alexandre Faye-Bédrin
+ */
+
 #include <stdio.h>     /* printf */
 #include <stdlib.h>    
 #include <time.h>
