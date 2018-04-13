@@ -92,7 +92,9 @@ int main(void)
 	scanf("%d",&(player_type[1]));
 	
 	int nb_games;
-	printf("Combien de parties veux-tu jouer ? ")
+	int who_won[2]={0};
+	printf("Combien de parties veux-tu jouer ? ");
+	scanf("%d",&nb_games);
 	
 /** Affichage des conditions et du terrain
  */
@@ -100,28 +102,32 @@ int main(void)
     print_board();
 	
 	int player=0;
-	while (!game_end()){
-		switch (player_type[player]){
-			case 1:
-			maj_board(human_color(player), player);
-			break;
-			case 2:
-			maj_board(alea1_color(),player);
-			break;
-			case 3:
-			maj_board(alea2_color(player),player);
-			break;
-			case 4:
-			maj_board(glouton_color(player),player);
+	for(int i=0;i<nb_games;i++) {
+		while (!game_end(who_won)){
+			switch (player_type[player]){
+				case 1:
+				maj_board(human_color(player), player);
+				break;
+				case 2:
+				maj_board(alea1_color(),player);
+				break;
+				case 3:
+				maj_board(alea2_color(player),player);
+				break;
+				case 4:
+				maj_board(glouton_color(player),player);
+			}
+			print_board();
+			
+			print_territory(0);
+			print_territory(1);
+			
+			player=1-player;
 		}
-		print_board();
-		
-		print_territory(0);
-		print_territory(1);
-		
-		player=1-player;
 	}
 	
+	printf("Joueur 1 : %d victoires\n",who_won[0]);
+	printf("Joueur 2 : %d victoires\n",who_won[1]);
 	
 	
     return 0; // Everything went well
