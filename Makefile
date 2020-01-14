@@ -1,7 +1,10 @@
 all: 7colors 
 
-7colors: 7colors.o maj.o map_gen.o human.o territory.o stop_condition.o alea1.o alea2.o glouton.o hegemonique.o smart_glouton.o
-	gcc 7colors.o maj.o map_gen.o human.o territory.o stop_condition.o alea1.o alea2.o glouton.o hegemonique.o smart_glouton.o -o 7colors 
+7colors: standalone.o 7colors.o maj.o map_gen.o human.o territory.o stop_condition.o alea1.o alea2.o glouton.o hegemonique.o smart_glouton.o
+	gcc standalone.o 7colors.o maj.o map_gen.o human.o territory.o stop_condition.o alea1.o alea2.o glouton.o hegemonique.o smart_glouton.o -o 7colors 
+
+standalone.o: standalone.c
+	gcc -Wall -Werror -Wextra -Wno-unused-function -Wno-unused-parameter standalone.c -c -g
 
 7colors.o: 7colors.c 7colors.h
 	gcc -Wall -Werror -Wextra -Wno-unused-function -Wno-unused-parameter 7colors.c -c -g
